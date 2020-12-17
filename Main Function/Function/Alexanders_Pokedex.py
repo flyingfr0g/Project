@@ -26,6 +26,6 @@ def main():
     ability_info = poke.get("abilities")
     pprint.pprint(name_info['name'])
     pprint.pprint(type_info)
-    pprint.pprint(ability_info[{'ability'}])
+    pprint.pprint(ability_info)
 
 main()
