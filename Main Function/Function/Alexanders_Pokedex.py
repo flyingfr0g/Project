@@ -2,7 +2,7 @@
 
 # the first thing we will do is load any imports we may need
 
-import urllib.request
+import urllib.parse
 import pprint
 import requests
 import json
@@ -19,13 +19,13 @@ def main():
     pokeresponse = requests.get(f"{poke_base_uri}{poke_choice}/")
 
     # Decode the response
-    poke_ch = pokeresponse.json()
-    pprint.pprint(poke_ch)
-    names = poke_choice.get('name')
-    print("\nGreat Choice you chose:")
-    for     name in names:
-        name_info = requests.get(name)
-        print(name_info.json().get('name'))
-
+    poke = pokeresponse.json()
+    print("Great Choice you chose:")
+    name_info = poke.get("species")
+    type_info = poke.get("types")
+    ability_info = poke.get("abilities")
+    pprint.pprint(name_info['name'])
+    pprint.pprint(type_info)
+    pprint.pprint(ability_info[{'ability'}])
 
 main()
