@@ -3,7 +3,6 @@
 # the first thing we will do is load any imports we may need
 
 import urllib.parse
-import pprint
 import requests
 import json
 
@@ -35,12 +34,18 @@ def close_pokedex():
     print("Thank you for using Alexander's Pokedex, look forward to updates!")
     quit()
 
+# run our greeting function
 greeting()
+
+## run our main function
 main()
 
+#ask the user if they are finished and terminate
 while True:
     zzz = input('Would you like to look up another Pokemon? y/n : ')
     if zzz.lower().startswith("y"):
         main()
     elif zzz.lower().startswith("n"):
         close_pokedex()
+    else:
+        print("sorry I did not understand your input")
