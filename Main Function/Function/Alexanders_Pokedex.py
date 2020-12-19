@@ -2,9 +2,7 @@
 
 # the first thing we will do is load any imports we may need
 
-import urllib.parse
 import requests
-import json
 
 # Ask user for name
 def greeting():
@@ -16,26 +14,32 @@ def greeting():
 def main():
     poke_base_uri = "https://pokeapi.co/api/v2/pokemon/"
     poke_choice = input("Please type in the name of the Pokemon you wish to learn about or choose"
-                        " a random number between 1 and 200:  ")
+                        " a random number between 1 and 898:  ")
     pokeresponse = requests.get(f"{poke_base_uri}{poke_choice}/")
 
     # Decode the response
+
     poke = pokeresponse.json()
     print("Great Choice you chose:")
     name_info = poke.get("species")
     type_info = poke.get('types')
     poke_name = (name_info['name'])
-    print((poke_name), "is classed as a: ")
+    print((poke_name), ": which is classed as a: ")
     for t in type_info:
         print((t['type']['name']), "type Pokemon")
+        #while True:
+            #if t == ('grass'):
+                #print("and is weak against fire types")
 
 
 def close_pokedex():
     print("Thank you for using Alexander's Pokedex, look forward to updates!")
     quit()
 
+
 # run our greeting function
 greeting()
+
 
 ## run our main function
 main()
