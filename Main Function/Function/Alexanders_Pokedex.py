@@ -3,6 +3,7 @@
 # the first thing we will do is load any imports we may need
 
 import requests
+import crayons
 
 # Ask user for name
 def greeting():
@@ -11,7 +12,7 @@ def greeting():
 
 # Next is our main function
 
-def main():
+def pokedex():
     poke_base_uri = "https://pokeapi.co/api/v2/pokemon/"
     poke_choice = input("Please type in the name of the Pokemon you wish to learn about or choose"
                         " a random number between 1 and 898:  ")
@@ -23,17 +24,19 @@ def main():
     print("Great Choice you chose:")
     name_info = poke.get("species")
     type_info = poke.get('types')
+    abilities_info = poke.get('abilities')
     poke_name = (name_info['name'])
-    print((poke_name), ": which is classed as a: ")
+    print((poke_name), ": which is classified as a: "),
     for t in type_info:
-        print((t['type']['name']), "type Pokemon")
-        #while True:
-            #if t == ('grass'):
-                #print("and is weak against fire types")
+        print((t['type']['name']), "", sep=", type and ")
+    print( "this Pokemon's signature abilities are: ")
+    for a in abilities_info:
+            print((a['ability']['name']),"", sep=", and ")
+
 
 
 def close_pokedex():
-    print("Thank you for using Alexander's Pokedex, look forward to updates!")
+    print ("Thank you for using Alexander's Pokedex, look forward to updates!")
     quit()
 
 
@@ -42,13 +45,13 @@ greeting()
 
 
 ## run our main function
-main()
+pokedex()
 
 #ask the user if they are finished and terminate
 while True:
     zzz = input('Would you like to look up another Pokemon? y/n : ')
     if zzz.lower().startswith("y"):
-        main()
+        pokedex()
     elif zzz.lower().startswith("n"):
         close_pokedex()
     else:
