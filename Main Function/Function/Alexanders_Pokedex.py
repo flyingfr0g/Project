@@ -3,7 +3,7 @@
 # the first thing we will do is load any imports we may need
 
 import requests
-import crayons
+import pprint
 
 # Ask user for name
 def greeting():
@@ -28,10 +28,10 @@ def pokedex():
     poke_name = (name_info['name'])
     print((poke_name), ": which is classified as a: "),
     for t in type_info:
-        print((t['type']['name']), "", sep=", type and ")
+        print((t['type']['name']), "", sep=" type")
     print( "this Pokemon's signature abilities are: ")
     for a in abilities_info:
-            print((a['ability']['name']),"", sep=", and ")
+            print((a['ability']['name']),"", sep=",")
 
 
 
