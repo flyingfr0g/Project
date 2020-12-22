@@ -3,7 +3,6 @@
 # the first thing we will do is load any imports we may need
 
 import requests
-import pprint
 
 # Ask user for name
 def greeting():

@@ -35,7 +35,7 @@ def game():
 
     for i in range(10):
         printBoard(gameboard)
-        print("Your move ," + move + ". which space do you want?")
+        print("Your move , " + move + ". which space do you want?")
 
         space = input()
 
