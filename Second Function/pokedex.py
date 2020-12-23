@@ -1,14 +1,9 @@
 import requests
 # Ask user for name
-
-
 def greeting():
     player_name = input("Greetings Traveler, what is your name? ")
     print(f"Well hello, {player_name}, its so great to meet you. Welcome to my Pokedex ")
-
-
 # Next is our main function
-
 def pokedex():
     poke_base_uri = "https://pokeapi.co/api/v2/pokemon/"
     poke_choice = input("Please type in the name of the Pokemon you wish to learn about or choose"
@@ -22,6 +17,7 @@ def pokedex():
     abilities_info = poke.get('abilities')
     poke_name = (name_info['name'])
     print((poke_name), ": which is classified as a: "),
+    print((poke_name), ", which is classified as a: "),
     for t in type_info:
         print((t['type']['name']), "", sep=" type")
         if t['type']['name'] == "grass":
@@ -75,26 +71,17 @@ def pokedex():
         if t['type']['name'] == "psychic":
             print("psychic types are weak against bug, dark, and ghost types")
 
-    print("this Pokemon's signature abilities are: ")
+    print( "this Pokemon's signature abilities are: ")
     for a in abilities_info:
-        print((a['ability']['name']), "", sep=",")
-
-
+            print((a['ability']['name']),"", sep=",")
 def close_pokedex():
-    print("Thank you for using Alexander's Pokedex, look forward to updates!")
+    print ("Thank you for using Alexander's Pokedex, look forward to updates!")
     quit()
-
-
 # run our greeting function
-
 greeting()
-
-# run our main function
-
+## run our main function
 pokedex()
-
-# ask the user if they are finished and terminate
-
+#ask the user if they are finished and terminate
 while True:
     zzz = input('Would you like to look up another Pokemon? y/n : ')
     if zzz.lower().startswith("y"):
